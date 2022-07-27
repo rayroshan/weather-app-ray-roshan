@@ -13,6 +13,7 @@ const City = () => {
   const params = useParams();
   const { city } = params;
   const [message, setMessage] = useState();
+  const [loading, setLoading] = useState(true);
   const [weatherInfo, setWeatherInfo] = useState();
   const [currentCity, setCurrentCity] = useState();
 
@@ -37,7 +38,9 @@ const City = () => {
   const getWeatherInfo = async (currentCity) => {
     try {
       setWeatherInfo(await getWeatherForCity(currentCity));
+      setLoading(false);
     } catch (err) {
+      setLoading(false);
       setMessage(
         err.response?.data?.message || err?.message || "Something went wrong"
       );
@@ -61,7 +64,7 @@ const City = () => {
       <Navigation cities={cities} current={currentCity?._id} />
       <Card>
         <Grid>
-          {renderWeatherInfo()}
+          {!loading ? renderWeatherInfo() : <></>}
         </Grid>
       </Card>
       <Error error={message} setError={setMessage} />
