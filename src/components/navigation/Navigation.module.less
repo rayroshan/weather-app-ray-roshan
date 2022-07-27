@@ -1,0 +1,58 @@
+@import "../../styles/colors.less";
+@import "../../styles/fonts.less";
+
+.navigation {
+  
+  margin: 25px 0;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      margin: 0 10px;
+      font-size: 26px;
+      text-transform: uppercase;
+      min-width: 164px;
+      text-align: center;
+
+      a {
+        color: @jetblack;
+        text-decoration: none;
+      }
+    }
+
+    .item {
+      &:hover {
+        a {
+          color: @blue;
+          cursor: pointer;
+        }
+      }
+
+      &__active {
+        a {
+          color: @blue;
+          font-family: @bold;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width:768px) {
+  .navigation {
+      ul {
+        flex-wrap: wrap;
+        li {
+          min-width: 100%;
+          font-size:18px;
+          padding:10px;
+        }
+      }
+  }
+}

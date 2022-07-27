@@ -1,0 +1,35 @@
+.grid {
+  height: 100%;
+
+  &__primary {
+    height: 230px;
+    margin-bottom: 4px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+  }
+
+  &__secondary {
+    height: 168px;
+    display: flex;
+    justify-content: space-between;
+
+    > div {
+      width: 25%;
+      margin: 0 2px;
+      overflow: hidden;
+
+      &:first-child {
+        margin-left: 0;
+        border-bottom-left-radius: 10px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+}
+
+
